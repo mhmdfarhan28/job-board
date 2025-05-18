@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Employer;
+
+use App\Http\Middleware\Employer;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -12,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-		    // This is registering an alias for custom middleware
+        // This is registering an alias for custom middleware
         $middleware->alias([
             'employer' => Employer::class,
         ]);
